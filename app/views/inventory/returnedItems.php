@@ -59,9 +59,9 @@ $edate = $_GET['edate'];
                                             <th>#</th>
                                             <th class="text-center">Customer</th>
                                             <th class="text-center">Contact</th>
-                                            <th class="text-center">Event Date</th>
-                                            <th class="text-center">User</th>
+                                            <th class="text-center">Event Date</th>                
                                             <th class="text-center">Returned On</th>
+                                            <th class="text-center">User</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Actions</th>
                                         </tr>
@@ -74,15 +74,14 @@ $edate = $_GET['edate'];
                                                 <th scope="row"><?php echo $i; ?></th>
                                                 <td class="text-center"><?php echo $one['customerName']; ?> </td>
                                                 <td class="text-center"><a href="tel:"><?php echo $one['phoneNumber']; ?></a> </td>
-                                                <td class="text-center"><?php echo date('d/m/Y', strtotime($one['eventDate']))?> </td>
-                                                <td class="text-center"><?php echo $one['firstname'].' '.$one['lastname']; ?></td>
+                                                <td class="text-center"><?php echo date('d/m/Y', strtotime($one['eventDate']))?> </td>   
                                                 <?php if ($one['returned_on'] == '') {?>
                                                     <td class="text-center">--</td>
                                                 <?php }?>
                                                 <?php if ($one['returned_on'] != '') {?>
                                                     <td class="text-center"><?php echo date('d/m/Y', strtotime($one['returned_on']))?> </td>
                                                 <?php }?>
-                                                
+                                                <td class="text-center"><?php echo $one['firstname'].' '.$one['lastname']; ?></td>
                                                 <?php if($one['return_value'] == '0' || $one['return_value'] == '') {?>
                                                     <td class="text-center">
                                                         <span class="badge badge-danger">Not Returned</span>
