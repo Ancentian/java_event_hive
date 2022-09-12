@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1; foreach ($events as $one) { if (date('d/m/Y', strtotime($one['eventDate'])) > date("h:i:sa")) { ?>
+                                <?php $i = 1; foreach ($events as $one) { if (date('d/m/Y', strtotime($one['eventDate'])) > date('d/m/Y')) { ?>
                                     <tr>
                                         <th scope="row"><?php echo $i; ?></th>
                                         <td class="text-center"><?php echo $one['customerName']; ?> </td>

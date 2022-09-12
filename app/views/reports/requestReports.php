@@ -88,10 +88,13 @@ $edate = $_GET['edate'];
                                                     <td class="text-center">
                                                         <span class="badge badge-danger">Not Returned</span>
                                                     </td>
-                                                <?php }?>
-                                                <?php if ($one['return_value'] == '1') {?>
+                                                <?php }elseif ($one['return_value'] == '1') {?>
                                                     <td class="text-center">
                                                         <span class="badge badge-success">Returned</span>
+                                                    </td>
+                                                <?php }elseif ($one['return_value'] == '3') {?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-warning">Partially Returned</span>
                                                     </td>
                                                 <?php }?>
                                                 <td class="text-center">
@@ -133,7 +136,7 @@ $edate = $_GET['edate'];
                                                 <th class="text-center">Date</th>
                                                 <th class="text-center">User</th>
                                                 <th class="text-center">Status</th>
-                                                <!-- <th class="text-center">Actions</th> -->
+                                                <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -147,15 +150,18 @@ $edate = $_GET['edate'];
                                                     <td class="text-center"><?php echo date('d/m/Y', strtotime($one['eventDate']))?> </td>
                                                     <td class="text-center"><?php echo $one['firstname'].' '.$one['lastname']; ?></td>
                                                     <?php if($one['return_value'] == '0' || $one['return_value'] == '') {?>
-                                                        <td class="text-center">
-                                                            <span class="badge badge-danger">Not Returned</span>
-                                                        </td>
-                                                    <?php }?>
-                                                    <?php if ($one['return_value'] == '1') {?>
-                                                        <td class="text-center">
-                                                            <span class="badge badge-success">Returned</span>
-                                                        </td>
-                                                    <?php }?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-danger">Not Returned</span>
+                                                    </td>
+                                                <?php }elseif ($one['return_value'] == '1') {?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-success">Returned</span>
+                                                    </td>
+                                                <?php }elseif ($one['return_value'] == '3') {?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-warning">Partially Returned</span>
+                                                    </td>
+                                                <?php }?>
                                                     <td class="text-center">
                                                     <a href="<?php echo base_url(); ?>inventory/viewReturnedItems/<?php echo $one['id']; ?>" title="View" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                                     
@@ -194,7 +200,7 @@ $edate = $_GET['edate'];
                                                     <th class="text-center">Date</th>
                                                     <th class="text-center">User</th>
                                                     <th class="text-center">Status</th>
-                                                    <!-- <th class="text-center">Actions</th> -->
+                                                    <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -208,19 +214,22 @@ $edate = $_GET['edate'];
                                                         <td class="text-center"><?php echo date('d/m/Y', strtotime($one['eventDate']))?> </td>
                                                         <td class="text-center"><?php echo $one['firstname'].' '.$one['lastname']; ?></td>
                                                         <?php if($one['return_value'] == '0' || $one['return_value'] == '') {?>
-                                                            <td class="text-center">
-                                                                <span class="badge badge-danger">Not Returned</span>
-                                                            </td>
-                                                        <?php }?>
-                                                        <?php if ($one['return_value'] == '1') {?>
-                                                            <td class="text-center">
-                                                                <span class="badge badge-success">Returned</span>
-                                                            </td>
-                                                        <?php }?>
-                                                        <!-- <td class="text-center">
-                                                    <a href="<?php //echo base_url(); ?>inventory/viewReturnedItems/<?php //echo $one['id']; ?>" title="View" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-danger">Not Returned</span>
+                                                    </td>
+                                                <?php }elseif ($one['return_value'] == '1') {?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-success">Returned</span>
+                                                    </td>
+                                                <?php }elseif ($one['return_value'] == '3') {?>
+                                                    <td class="text-center">
+                                                        <span class="badge badge-warning">Partially Returned</span>
+                                                    </td>
+                                                <?php }?>
+                                                        <td class="text-center">
+                                                    <a href="<?php echo base_url(); ?>inventory/viewReturnedItems/<?php echo $one['id']; ?>" title="View" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                                     
-                                                </td> -->
+                                                </td>
                                                     </tr> 
                                                     <?php $i++; } } ?>
                                                 </tbody>
@@ -228,9 +237,7 @@ $edate = $_GET['edate'];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-block text-right card-footer">
-                                    <a href="javascript:void(0);" class="btn-wide btn btn-success">Save</a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
